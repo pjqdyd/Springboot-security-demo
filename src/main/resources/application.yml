@@ -9,3 +9,10 @@ spring:
       ddl-auto: update
     show-sql: true
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect #指定默认mysql引擎为InnoDB
+
+# JWT常量配置
+jwt:
+  header: Authorization  #存放token的Header Key
+  secret: mySecret       #token的签名密钥
+  expiration: 86400      #token有效期/秒
+  token-prefix: "Bearer" #token值的前缀

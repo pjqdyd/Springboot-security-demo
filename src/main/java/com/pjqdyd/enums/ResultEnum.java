@@ -19,7 +19,9 @@ public enum ResultEnum implements EnumInfoGetter {
     LOGIN_ERROR(204,"登录错误"),
     SQL_ERROR(205, "数据库SQL异常"),
     UNKNOWN_ERROR(206, "未知错误"),
-    PERMISSION_ERROR(207, "权限不足");
+    PERMISSION_ERROR(207, "权限不足"),
+    USER_ALREADY_EXISTS(208, "用户已存在"),
+    AUTHENTICATION_FAILED(209, "认证失败");
 
     private Integer code;
     private String message;

@@ -1,9 +1,7 @@
 package com.pjqdyd;
 
-import com.pjqdyd.entity.Permission;
 import com.pjqdyd.entity.Role;
 import com.pjqdyd.entity.User;
-import com.pjqdyd.repository.PermissionRepository;
 import com.pjqdyd.repository.RoleRepository;
 import com.pjqdyd.repository.UserRepository;
 import org.junit.Assert;
@@ -26,9 +24,6 @@ public class MainTest {
 
     @Autowired
     private RoleRepository roleRepository;
-
-    @Autowired
-    private PermissionRepository permissionRepository;
 
     /**
      * 添加用户测试
@@ -61,22 +56,6 @@ public class MainTest {
         Assert.assertNotNull(result);
     }
 
-    /**
-     * 添加权限测试
-     */
-    @Test
-    public void addPermissionTest(){
-
-        Permission permission = new Permission();
-        permission.setPermissionId(2004);
-        permission.setPermissionName("PERM_DELETE");
-        permission.setPermissionNameCn("删除权限");
-
-        Permission result = permissionRepository.save(permission);
-
-        System.out.println(result.toString());
-        Assert.assertNotNull(result);
-    }
 
     /**
      * 用户关联角色测试
@@ -96,5 +75,6 @@ public class MainTest {
         System.out.println(result.toString());
         Assert.assertNotNull(result);
     }
+
 
 }

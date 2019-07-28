@@ -53,4 +53,14 @@ public class ResponseResult {
         this.data = data;
     }
 
+    //覆盖toString方法, 以符合Json格式
+    @Override
+    public String toString() {
+        return "{" +
+                "\"code\":" + code +
+                ", \"message\":\"" + message + '\"' +
+                ", \"data\":\"" + data + '\"'+
+                '}';
+    }
+
 }

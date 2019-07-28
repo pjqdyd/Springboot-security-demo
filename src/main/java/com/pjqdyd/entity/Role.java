@@ -2,12 +2,13 @@ package com.pjqdyd.entity;
 
 import lombok.Data;
 import lombok.ToString;
+import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 import java.util.List;
 
 /**   
- * @Description:  [角色实体类]
+ * @Description:  [角色实体类, 实现GrantedAuthority接口, 并覆盖getAuthority方法返回角色名]
  * @Author:       pjqdyd
  * @Version:      [v1.0.0]
  */
@@ -15,8 +16,8 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "tb_role")
-@ToString(exclude = {"users", "permissions"})
-public class Role {
+@ToString(exclude = "users")
+public class Role implements GrantedAuthority {
 
     /**
      * 角色Id
@@ -35,15 +36,16 @@ public class Role {
     private String roleNameCn;
 
     /**
-     * 角色关联用户, 角色放弃控制权,交给user维护,user具有主导权
+     * 角色关联用户, 角色放弃控制权,交给user维护,user具有主导权, 用户懒加载
      */
     @ManyToMany(mappedBy = "roles", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<User> users;
 
     /**
-     * 角色关联权限
+     * 给认证用户提供角色名
      */
-    @ManyToMany
-    private List<Permission> permissions;
-
+    @Override
+    public String getAuthority() {
+        return roleName;
+    }
 }
