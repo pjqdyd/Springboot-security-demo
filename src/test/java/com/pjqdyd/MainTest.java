@@ -47,9 +47,9 @@ public class MainTest {
     @Test
     public void addRoleTest(){
         Role role = new Role();
-        role.setRoleId(1003);
-        role.setRoleName("ROLE_SUPER_ADMIN");
-        role.setRoleNameCn("超级管理员角色");
+        role.setRoleId(1001);
+        role.setRoleName("ROLE_USER");
+        role.setRoleNameCn("用户角色");
 
         Role result = roleRepository.save(role);
         System.out.println(result.toString());
