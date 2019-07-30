@@ -86,6 +86,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/index").permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/auth/**").permitAll()
+                //.antMatchers("/user/**").hasAuthority("ROLE_USER")
                 //.antMatchers("/**")
                 //.fullyAuthenticated()
                 .antMatchers(HttpMethod.POST).authenticated()
@@ -94,7 +95,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET).authenticated()
                 .and()
                 .addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class) //添加Jwt过滤器
-                .csrf().disable()           //关闭CSRF
+                .csrf().disable()           //关闭CSRF跨站请求伪造的防范,因为不再依赖于Cookie
                 .headers().cacheControl();  //禁用缓存
     }
 

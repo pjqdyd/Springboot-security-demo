@@ -28,6 +28,9 @@ public class JwtTokenUtil {
     private Long EXPIRATION_TIME;
 
 
+    /**
+     * 根据解密信息获取用户名
+     */
     public String getUsernameFromToken(String token) {
         String username;
         try {
@@ -61,6 +64,9 @@ public class JwtTokenUtil {
         return expiration;
     }
 
+    /**
+     * 这一步实际上是在根据密钥解密token信息,如果token被篡改了,那么抛异常claims = null
+     */
     private Claims getClaimsFromToken(String token) {
         Claims claims;
         try {
@@ -118,6 +124,9 @@ public class JwtTokenUtil {
         return refreshedToken;
     }
 
+    /**
+     * 验证token信息, 双重验证,不仅解密token验证,还与数据库的username做了比对 (如果token不正确, 那么解密的username=null, 返回false)
+     */
     public Boolean validateToken(String token, UserDetails userDetails) {
         User user = (User) userDetails;
         final String username = getUsernameFromToken(token);
