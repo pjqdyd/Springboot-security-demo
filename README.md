@@ -11,9 +11,11 @@
 
 #### 项目模块:
     ```
-      ├─springboot-security-jwt-demo      Springboot+Security+Jwt整合的模块
-      ├─.gitignore                        .gitignore文件
-      ├─README.md                         README.md文件
-      └─pom.xml                           父模块pom文件
+      ├─springboot-security-jwt-demo                Springboot + Security + Jwt整合的模块
+      ├─springboot-security-oauth2-server-demo      Springboot + SecurityOAuth2整合的认证服务模块
+      ├─springboot-security-oauth2-resources-demo   Springboot + SecurityOAuth2整合的资源服务模块
+      ├─.gitignore                                  .gitignore文件
+      ├─README.md                                   README.md文件
+      └─pom.xml                                     父模块pom文件
      ```
    

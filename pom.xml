@@ -11,6 +11,8 @@
 
   <modules>
     <module>springboot-security-jwt-demo</module>
+    <module>springboot-security-oauth2-server-demo</module>
+    <module>springboot-security-oauth2-resources-demo</module>
   </modules>
 
   <parent>
@@ -40,17 +42,6 @@
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <scope>runtime</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-security</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>io.jsonwebtoken</groupId>
-      <artifactId>jjwt</artifactId>
-      <version>0.9.0</version>
     </dependency>
 
     <dependency>
