@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: spring-security-oauth2-resources
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect #指定默认mysql引擎为InnoDB
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #这里可以连另外的资源数据库, 就是正常的Dao数据持久层操作
+    url: jdbc:mysql://localhost:3306/db_spring_security_oauth2?useUnicode=true&serverTimezone=GMT%2B8&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+    hikari:
+      minimum-idle: 5
+      idle-timeout: 600000
+      maximum-pool-size: 10
+      auto-commit: true
+      pool-name: MyHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+
+#配置认证服务的信息
+security:
+  oauth2:
+    client:
+      client-id: client
+      client-secret: secret
+      access-token-uri: http://localhost:9000/oauth/token
+      user-authorization-uri: http://localhost:9000/oauth/authorize
+    resource:
+      token-info-uri: http://localhost:9000/oauth/check_token
+
+server:
+  port: 8000
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.springframework.security: INFO
+    org.springframework.security.oauth2: INFO
