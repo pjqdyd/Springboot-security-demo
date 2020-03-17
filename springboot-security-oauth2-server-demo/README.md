@@ -26,3 +26,11 @@ web_server_redirect_uri：服务器回调地址
 ```
 
 4. 执行init_user_role_perm.sql初始自定义的用户信息表, 初始两个用户角色的信息(admin, user),密码都为123456
+
+5. 启动项目, 使用postman发送如下请求:
+```
+curl -X POST
+-H "accept: application/json" -H "content-type: application/x-www-formurlencoded" 
+-d "grant_type=password&username=admin&password=123456&scope=app" 
+'http://client:secret@localhost:9000/oauth/token' 
+```
