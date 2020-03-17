@@ -10,10 +10,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 
 @SpringBootApplication
-public class SpringSecurityApplication {
+public class SpringSecurityJwtApplication {
 
     public static void main(String[] args){
-        SpringApplication.run(SpringSecurityApplication.class, args);
+        SpringApplication.run(SpringSecurityJwtApplication.class, args);
     }
 
 }

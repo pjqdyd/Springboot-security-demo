@@ -1,4 +1,4 @@
-### SpringBoot + Spring Security + Jwt整合实现基于角色权限的访问控制的案例
+### SpringBoot + Spring Security 整合实现基于角色权限的访问控制的案例
 
 #### 项目环境:
 
@@ -8,10 +8,12 @@
    >4. Maven 3.5.4
    >5. Lombok 插件
    >6. 开发工具 IDEA
+
+#### 项目模块:
+    ```
+      ├─springboot-security-jwt-demo      Springboot+Security+Jwt整合的模块
+      ├─.gitignore                        .gitignore文件
+      ├─README.md                         README.md文件
+      └─pom.xml                           父模块pom文件
+     ```
    
-#### 如何测试:
-    1. 修改application.yml配置数据库连接, 创建Mysql数据库db_spring_security.
-    2. 启动SpringBoot项目生成User, Role相关表.
-    3. 运行测试类MainTest中的方法, 添加一些用户角色数据.
-    4. 访问localhost:8080/swagger-ui.html登录用户, 获取token.
-    5. 使用postman工具测试接口(header头部信息携带 "Authorization": "Bearer" + "登录生成的token").
