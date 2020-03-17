@@ -61,7 +61,7 @@ CREATE TABLE `tb_user` (
 
 
 LOCK TABLES `tb_user` WRITE;
-INSERT INTO `tb_user` VALUES (1001,18,'$2a$10$9ZhDOBp.sRKat4l14ygu/.LscxrMUcDAfeVOEPiYwbcRkoB09gCmi','admin'),(1002,18,'$10$9ZhDOBp.sRKat4l14ygu/.LscxrMUcDAfeVOEPiYwbcRkoB09gCmi','user');
+INSERT INTO `tb_user` VALUES (1001,18,'$2a$10$9ZhDOBp.sRKat4l14ygu/.LscxrMUcDAfeVOEPiYwbcRkoB09gCmi','admin'),(1002,18,'$2a$10$9ZhDOBp.sRKat4l14ygu/.LscxrMUcDAfeVOEPiYwbcRkoB09gCmi','user');
 UNLOCK TABLES;
 
 

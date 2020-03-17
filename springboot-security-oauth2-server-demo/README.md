@@ -1,7 +1,7 @@
 #### Springboot + Security oauth2整合的基于角色权限认证模块
 
 (密码模式: 直接输入用户名密码获取access_token, 与授权码模式不同, 
- 密码模式适合自己公司的服务之间使用)
+ 密码模式适合自己公司的前后端分离的服务之间使用)
 
 1. 先配置好数据库连接, 创建数据库db_spring_security_oauth2
 
@@ -34,3 +34,15 @@ curl -X POST
 -d "grant_type=password&username=admin&password=123456&scope=app" 
 'http://client:secret@localhost:9000/oauth/token' 
 ```
+
+6. 得到如下的响应: 
+```
+{
+    "access_token": "7710c8e1-3d4b-4e60-a4f9-e2fd9cb6ee32",
+    "token_type": "bearer",
+    "expires_in": 43199,
+    "scope": "app"
+}
+```
+
+7. 接下来就是使用access_token访问资源服务器了
