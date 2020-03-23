@@ -34,17 +34,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     /**
      * 使用自己提供的数据库查询的用户数据服务
      * @return
-     * @throws Exception
      */
     @Bean
     @Override
-    public UserDetailsService userDetailsServiceBean() throws Exception {
+    public UserDetailsService userDetailsServiceBean() {
        return new UserDetailsServiceImpl();
     }
 
     /**
      * 认证配置
-     *
      * @param auth
      * @throws Exception
      */
@@ -54,11 +52,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsServiceBean());
     }
 
-    //重写认证管理器配置,注入bean
+    //重写认证管理器配置,注入bean, 用于支持密码模式
     @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
+    }
+    //重写UserDetailsService,注入bean, 用于支持刷新token
+    @Bean
+    @Override
+    protected UserDetailsService userDetailsService() {
+        return super.userDetailsService();
     }
 
     /**
