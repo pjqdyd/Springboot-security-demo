@@ -32,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     /**
-     * 使用自己提供的数据库查询的用户数据服务
+     * 重写userDetailsServiceBean(), 使用自己提供的数据库查询的用户数据服务
      * @return
      */
     @Bean
@@ -58,7 +58,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
-    //重写UserDetailsService,注入bean, 用于支持刷新token
+    //重写userDetailsService(),注入bean, 用于支持刷新token
     @Bean
     @Override
     protected UserDetailsService userDetailsService() {
