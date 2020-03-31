@@ -34,6 +34,7 @@ curl -X POST
 -d "grant_type=password&username=admin&password=123456&scope=app" 
 'http://client:secret@localhost:9000/oauth/token' 
 ```
+(提示: 请求url中的"client:secret@"也可以使用参数: --user client:secret替代)
 
 6. 得到如下的响应: 
 ```
