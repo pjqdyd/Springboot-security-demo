@@ -1,18 +1,29 @@
 spring:
+  application:
+    name: SpringSecurity-JWT-RBAC
   datasource:
+    type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/db_spring_security?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    url: jdbc:mysql://localhost:3306/db_spring_security?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT&useSSL=false
     username: root
     password: 123456
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect #指定默认mysql引擎为InnoDB
+    hikari:
+      minimum-idle: 5
+      idle-timeout: 600000
+      maximum-pool-size: 10
+      auto-commit: true
+      pool-name: MyHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
 
 # JWT常量配置
 jwt:
-  header: Authorization  #存放token的Header Key
-  secret: mySecret       #token的签名密钥
-  expiration: 86400      #token有效期/秒
-  token-prefix: "Bearer" #token值的前缀
+  header: Authorization  # 存放token的Header Key
+  secret: mySecret        #token的签名密钥
+  expiration: 2592000     #token有效期/秒
+  token-prefix: "Bearer " #token值的前缀
+
+mybatis:
+  type-aliases-package: com.pjqdyd.entity
+  mapper-locations: classpath:mapper/*.xml
