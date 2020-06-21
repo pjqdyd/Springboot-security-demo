@@ -52,7 +52,7 @@ curl -X POST
    (提示: 这里如果对请求和响应的内容格式不满足, 比如前端只想要简单传username和password而不是
           什么grant_type, scope, client:secret等等, 响应的格式只简单想要access_token, 那么
           就可以自己写Controller接收简单请求, 再使用HttpClient或HttpUtil工具二次封装参数(什么grant_type,
-          scope, client:secret等等)请求去获取登录获取响应, 最后再封装简单想要返回给前端的响应格式返回)
+          scope, client:secret等等)请求去登录获取响应, 最后再封装简单想要返回给前端的响应格式返回)
 
 8. 刷新token: (因为access_token默认的有效期是12小时, 而refresh_token的有效期是30天)
 
