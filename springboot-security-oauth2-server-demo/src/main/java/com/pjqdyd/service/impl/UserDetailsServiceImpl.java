@@ -38,8 +38,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             //查询用户的权限列表
             List<Perm> permList = permService.getPermByUserId(user.getUserId());
             permList.forEach(perm -> {
-                //获取用户的权限名getPermNameCn, 创建grantedAuthority认证权限对象
-                GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(perm.getPermNameCn());
+                //获取用户的权限名getPermName, 创建grantedAuthority认证权限对象
+                GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(perm.getPermName());
                 //添加到认证权限集合中
                 grantedAuthoritiesList.add(grantedAuthority);
             });
