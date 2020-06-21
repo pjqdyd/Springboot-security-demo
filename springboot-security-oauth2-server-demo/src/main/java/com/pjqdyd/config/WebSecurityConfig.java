@@ -75,6 +75,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         //忽略拦截/oauth/check_token, 方便资源服务器使用
         web
                 .ignoring()
-                .antMatchers("/oauth/check_token");
+                .antMatchers("/oauth/check_token")
+                .antMatchers("/logout/**");
     }
 }

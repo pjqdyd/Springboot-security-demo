@@ -74,4 +74,10 @@ curl -X POST
         "scope": "app"
     }
    ```
-   
+
+9. 注销登录, 删除当前用户的access_token:
+  ```
+    curl -i -X POST 
+    -H "Authorization: Bearer 032694d7-247b-4055-a319-f1bdba85038a"
+    'http://localhost:9000/logout/user'
+  ```
